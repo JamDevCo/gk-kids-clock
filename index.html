@@ -134,21 +134,21 @@
             startAnalogClock();
             startDigitalClock();
 
-            // setInterval(
-            //     () => {
-            //         var now = new Date();
-            //         var seconds = now.getSeconds();
-            //         if ( seconds <= 15 ) {
-            //             if ( ! document.body.classList.contains('celebrate') ) {
-            //                 document.body.classList.add('celebrate');
-            //             }
-            //         } else {
-            //             if ( document.body.classList.contains('celebrate') ) {
-            //                 document.body.classList.remove('celebrate');
-            //             }
-            //         }
-            //     }, 1000
-            // )
+            setInterval(
+                () => {
+                    var now = new Date();
+                    var seconds = now.getSeconds();
+                    if ( seconds <= 15 ) {
+                        if ( ! document.body.classList.contains('celebrate') ) {
+                            document.body.classList.add('celebrate');
+                        }
+                    } else {
+                        if ( document.body.classList.contains('celebrate') ) {
+                            document.body.classList.remove('celebrate');
+                        }
+                    }
+                }, 1000
+            )
         };
     </script>
 </body>
