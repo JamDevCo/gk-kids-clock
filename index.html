@@ -8,21 +8,24 @@
     <link rel="stylesheet" href="./digital/styles.css" type="text/css" />
     <link rel="stylesheet" href="./analog/styles.css" type="text/css">
     <style>
+        /* Update the body background color */
         body  {
             background-color: #424558;
         }
 
+        /* Add padding and minimum height to the page */
         body {
             min-height: 90vh;
             position: relative;
             padding-bottom: 50px;
         }
 
+        /* Add a celebration gif */
         body.celebrate {
             background-image: url(./img/celebrate.gif);
         }
 
-
+        /* Add dynamic footer */
         body::before {
             content: "";
             position: absolute;
@@ -38,6 +41,7 @@
             opacity: 0.3
         }
 
+        /* Override digital clock styles */
         .digial-clock {
             height: auto;
             padding-top: 20px;
@@ -45,6 +49,7 @@
             background-color: none;
         }
 
+        /* Add branding to the page */
         .gk-brand {
             font-size: 60px !important;
             color: white;
@@ -66,30 +71,52 @@
 
 <body>
 
+    <!-- Start: branding -->
     <h1 class="gk-brand">
+        <!-- Branding logo -->
         <img src="./img/gk-logo.png" class="gk-logo" />
+        <!-- Branding name -->
         <span class="gk-title">GK Kids</span>
     </h1>
+    <!-- Updated by developer -->
     <h3 class="updated-by" >Updated by Oshane Bailey</h3>
+    <!-- End: branding -->
 
+    <!-- Start: analog clock structure -->
     <div class="analog-clock">
+        <!-- Start: analog clock outer face with border -->
         <div class="outer-clock-face">
+            <!-- Marker: on the hour -->
             <div class="marking marking-one"></div>
+            <!-- Marker: 15 minutes after the hour -->
             <div class="marking marking-two"></div>
+            <!-- Marker: 30 minutes after the hour -->
             <div class="marking marking-three"></div>
+            <!-- Marker: 45 minutes after the hour -->
             <div class="marking marking-four"></div>
+            <!-- Start: analog clock inner face with the different hands  -->
             <div class="inner-clock-face">
+                <!-- Time Pointer: hour hand -->
                 <div class="hand hour-hand"></div>
+                <!-- Time Pointer: minutes hand -->
                 <div class="hand min-hand"></div>
+                <!-- Time Pointer: seconds hand -->
                 <div class="hand second-hand"></div>
             </div>
+            <!-- End: analog clock inner face with the different hands  -->
         </div>
+        <!-- End: analog clock outer clock face with border -->
     </div>
+    <!-- End: analog clock structure -->
 
+    <!-- Start: digital clock structure -->
     <div class="digial-clock">
+        <!-- Element for the current timestamp -->
         <div class="time"></div>
+        <!-- Element for the current date  -->
         <div class="date-time"></div>
     </div>
+    <!-- End: digital clock structure -->
 
     <footer>
 
@@ -98,6 +125,7 @@
 
 
     <script src="./analog/analogclock.js"></script>
+    <!-- JavaScript library for Digital Clock -->
     <script src="./digital/digitalclock.js"></script>
 
     <script>
@@ -106,21 +134,21 @@
             startAnalogClock();
             startDigitalClock();
 
-            setInterval(
-                () => {
-                    var now = new Date();
-                    var seconds = now.getSeconds();
-                    if ( seconds <= 15 ) {
-                        if ( ! document.body.classList.contains('celebrate') ) {
-                            document.body.classList.add('celebrate');
-                        }
-                    } else {
-                        if ( document.body.classList.contains('celebrate') ) {
-                            document.body.classList.remove('celebrate');
-                        }
-                    }
-                }, 1000
-            )
+            // setInterval(
+            //     () => {
+            //         var now = new Date();
+            //         var seconds = now.getSeconds();
+            //         if ( seconds <= 15 ) {
+            //             if ( ! document.body.classList.contains('celebrate') ) {
+            //                 document.body.classList.add('celebrate');
+            //             }
+            //         } else {
+            //             if ( document.body.classList.contains('celebrate') ) {
+            //                 document.body.classList.remove('celebrate');
+            //             }
+            //         }
+            //     }, 1000
+            // )
         };
     </script>
 </body>
