@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GK Kids Clock</title>
+    <link rel="stylesheet" href="./digital/styles.css" type="text/css" />
+    <link rel="stylesheet" href="./analog/styles.css" type="text/css">
+    <style>
+        body  {
+            background-color: #424558;
+        }
+
+        body {
+            min-height: 90vh;
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        body.celebrate {
+            background-image: url(./img/celebrate.gif);
+        }
+
+
+        body::before {
+            content: "";
+            position: absolute;
+            height: 500px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            z-index: 100000;
+             background-image: url(./img/foods.png);
+            background-position: bottom;
+            background-repeat: repeat-x;
+            background-size: 500px;
+            opacity: 0.3
+        }
+
+        .digial-clock {
+            height: auto;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            background-color: none;
+        }
+
+        .gk-brand {
+            font-size: 60px !important;
+            color: white;
+            margin-bottom: 0px;
+        }
+        
+        .gk-brand .gk-logo{
+            height: 50px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .updated-by {
+            color: white;
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="gk-brand">
+        <img src="./img/gk-logo.png" class="gk-logo" />
+        <span class="gk-title">GK Kids</span>
+    </h1>
+    <h3 class="updated-by" >Updated by Oshane Bailey</h3>
+
+    <div class="analog-clock">
+        <div class="outer-clock-face">
+            <div class="marking marking-one"></div>
+            <div class="marking marking-two"></div>
+            <div class="marking marking-three"></div>
+            <div class="marking marking-four"></div>
+            <div class="inner-clock-face">
+                <div class="hand hour-hand"></div>
+                <div class="hand min-hand"></div>
+                <div class="hand second-hand"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="digial-clock">
+        <div class="time"></div>
+        <div class="date-time"></div>
+    </div>
+
+    <footer>
+
+    </footer>
+
+
+
+    <script src="./analog/analogclock.js"></script>
+    <script src="./digital/digitalclock.js"></script>
+
+    <script>
+        // Start the clock when the page is loaded
+        window.onload = () => {
+            startAnalogClock();
+            startDigitalClock();
+
+            setInterval(
+                () => {
+                    var now = new Date();
+                    var seconds = now.getSeconds();
+                    if ( seconds <= 15 ) {
+                        if ( ! document.body.classList.contains('celebrate') ) {
+                            document.body.classList.add('celebrate');
+                        }
+                    } else {
+                        if ( document.body.classList.contains('celebrate') ) {
+                            document.body.classList.remove('celebrate');
+                        }
+                    }
+                }, 1000
+            )
+        };
+    </script>
+</body>
+
+</html>

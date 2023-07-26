@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.digial-clock {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #424558;
+}
+
+.digial-clock>.time {
+  font-size: 80px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.digial-clock>.date-time {
+  font-size: 20px;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .time {
+    font-size: 50px;
+  }
+}
